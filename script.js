@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add scroll animations
     initScrollAnimations();
+
+    // Simple A/B test for hero title
+    initABTestHero();
 });
 
 // Testimonials Slider
@@ -91,10 +94,9 @@ function initSmoothScrolling() {
                 button.style.transform = '';
             }, 150);
             
-            // Here you would typically redirect to your main offer page
-            // For demo purposes, we'll show an alert
+            // Redirect to main offer page after click animation
             setTimeout(() => {
-                alert('Redirection vers l\'offre principale...');
+                window.location.href = 'https://example.com/offer';
             }, 200);
         });
     });
@@ -125,6 +127,22 @@ function initScrollAnimations() {
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
+}
+
+// Simple A/B test for hero title
+function initABTestHero() {
+    const heroTitle = document.querySelector('.hero-title');
+    if (!heroTitle) return;
+
+    let variant = localStorage.getItem('heroTitleVariant');
+    if (!variant) {
+        variant = Math.random() < 0.5 ? 'A' : 'B';
+        localStorage.setItem('heroTitleVariant', variant);
+    }
+
+    if (variant === 'B') {
+        heroTitle.textContent = 'Your Ultimate Destination for Exclusive Deals';
+    }
 }
 
 // Add some interactive hover effects

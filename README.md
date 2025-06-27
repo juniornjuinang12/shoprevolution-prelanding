@@ -64,7 +64,9 @@ pre-landing-page-project/
    - Modifier les textes dans `index.html`
    - Ajuster les couleurs dans `styles.css`
    - Remplacer les images dans `assets/images/`
-   - Configurer les liens CTA vers votre offre principale
+    - Configurer les liens CTA vers votre offre principale
+    - Ajouter votre identifiant Google Analytics dans `index.html`
+    - Tester plusieurs variantes de titres grâce au mini script A/B
 
 ## Personnalisation
 
@@ -82,6 +84,10 @@ Les couleurs principales sont définies dans `styles.css` :
 
 ### Configurer les CTA
 Modifier les liens des boutons CTA dans `index.html` et la fonction JavaScript dans `script.js` pour rediriger vers votre offre principale.
+
+### Suivi et tests A/B
+1. Remplacez `GA_MEASUREMENT_ID` dans `index.html` par votre identifiant Google Analytics pour suivre les performances.
+2. Le script `script.js` contient une fonction simple qui affiche deux variantes du titre principal. Videz `localStorage` pour forcer un nouveau test.
 
 ## Technologies utilisées
 
